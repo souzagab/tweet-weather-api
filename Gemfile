@@ -11,11 +11,14 @@ gem 'puma', '~> 4.1'
 gem 'ropenweather', git: 'https://github.com/souzagab/ropenweather.git'
 gem 'twitter', '~> 7.0.0'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'dotenv', '~> 2.7.6'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'vcr', '~> 6.0'
+  gem 'webmock', '~> 3.9', '>= 3.9.3'
 end
 
 group :development do
