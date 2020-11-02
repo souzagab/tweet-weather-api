@@ -16,7 +16,8 @@ class WeatherService
 
   def current
     response = client.current_weather(city: city)
-    Weather.new(date: response[:dt_txt],
+
+    Weather.new(date: Date.current,
                 temp: response[:main][:temp],
                 description: response[:weather].first[:description])
   end
