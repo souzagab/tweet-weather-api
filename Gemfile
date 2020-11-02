@@ -8,7 +8,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
 gem 'puma', '~> 4.1'
-gem 'ropenweather'
+gem 'ropenweather', git: 'https://github.com/souzagab/ropenweather.git'
 gem 'twitter', '~> 7.0.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'dotenv', '~> 2.7.6'

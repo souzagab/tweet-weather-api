@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/souzagab/ropenweather.git
+  revision: a1014eaa3f587199ea366324777a7bcabe203c78
+  specs:
+    ropenweather (0.1.0)
+      rest-client (>= 2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -159,8 +166,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ropenweather (0.1.0)
-      rest-client (>= 2.0.0)
     rspec-core (3.10.0)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.0)
@@ -223,7 +228,7 @@ DEPENDENCIES
   listen (~> 3.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
-  ropenweather
+  ropenweather!
   rspec-rails (~> 4.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
