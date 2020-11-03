@@ -9,7 +9,7 @@ class WeatherService
 
   def get_weather(city:)
     self.city = city
-    { today: current, forecasts: forecasts }
+    { today: current, week: forecasts }
   end
 
   private
@@ -18,7 +18,7 @@ class WeatherService
     response = client.current_weather(city: city)
 
     Weather.new(date: Date.current,
-                temp: response[:main][:temp],
+                temp: response[:main][:temp].to_f.round,
                 description: response[:weather].first[:description])
   end
 
@@ -41,7 +41,7 @@ class WeatherService
   end
 
   def daily_average(list)
-    temperatures = list.map { |item| item[:main][:temp] }
+    temperatures = list.map { |item| item[:main][:temp].to_f }
 
     (temperatures.sum(0.0) / temperatures.size).round
   end

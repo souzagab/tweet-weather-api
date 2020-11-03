@@ -21,6 +21,7 @@ Shoulda::Matchers.configure do |c|
 end
 
 VCR.configure do |c|
+  c.define_cassette_placeholder("<API_KEY>", ENV["OPEN_WEATHER_KEY"])
   c.cassette_library_dir = 'spec/cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
@@ -34,7 +35,7 @@ VCR.configure do |c|
   }
 
   c.before_record do |record|
-    record.request.uri.gsub!(ENV['API_KEY'], 'api-key') if ENV.key?('API_KEY')
+    record.request.uri.gsub!(ENV['OPEN_WEATHER_KEY'], 'api-key') if ENV.key?('OPEN_WEATHER_KEY')
     record.response.body.force_encoding('UTF-8')
   end
 end

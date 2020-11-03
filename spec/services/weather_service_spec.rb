@@ -45,7 +45,7 @@ RSpec.describe WeatherService do
 
       describe 'with valid city' do
         let(:response) { subject.get_weather(city: 'Campinas') }
-        let(:response_keys) { %i(today forecasts) }
+        let(:response_keys) { %i(today week) }
         it 'response type Hash ' do
           expect(response).to be_a(Hash)
         end
@@ -68,6 +68,7 @@ RSpec.describe WeatherService do
       allow(subject).to receive(:forecasts).and_return kind_of(Array)
     end
   end
+
   context '#time_gap' do
     it 'returns array of dates' do
       allow(subject).to receive(:time_gap).and_return kind_of(Array)

@@ -23,4 +23,18 @@ RSpec.describe Weather do
       expect(subject.description).to eq('Clouds')
     end
   end
+
+  context '#formatted_date' do
+    it 'returns formatted date' do
+      date = Date.current
+      subject.date = date
+      expect(subject.formatted_date).to eq date.strftime('%d/%m')
+    end
+  end
+  context '#formatted_temp' do
+    it 'returns formatted temperature' do
+      subject.temp = '32'
+      expect(subject.formatted_temp).to eq('32°C')
+    end
+  end
 end

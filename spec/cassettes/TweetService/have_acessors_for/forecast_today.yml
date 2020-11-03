@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Tue, 03 Nov 2020 01:40:15 GMT
+      - Tue, 03 Nov 2020 01:40:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -42,7 +42,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"coord":{"lon":-47.06,"lat":-22.91},"weather":[{"id":800,"main":"Clear","description":"céu
         limpo","icon":"01n"}],"base":"stations","main":{"temp":16.31,"feels_like":10.36,"temp_min":15,"temp_max":17.78,"pressure":1017,"humidity":62},"visibility":10000,"wind":{"speed":8.2,"deg":130},"rain":{"1h":0.1},"clouds":{"all":0},"dt":1604367280,"sys":{"type":1,"id":8393,"country":"BR","sunrise":1604305327,"sunset":1604352084},"timezone":-10800,"id":3467865,"name":"Campinas","cod":200}'
-  recorded_at: Tue, 03 Nov 2020 01:40:14 GMT
+  recorded_at: Tue, 03 Nov 2020 01:40:10 GMT
 - request:
     method: get
     uri: http://api.openweathermap.org/data/2.5/forecast?appid=api-key&lang=pt_BR&q=Campinas&units=metric
@@ -66,7 +66,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Tue, 03 Nov 2020 01:40:15 GMT
+      - Tue, 03 Nov 2020 01:40:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -162,5 +162,5 @@ http_interactions:
         21:00:00"},{"dt":1604793600,"main":{"temp":20.06,"feels_like":17.05,"temp_min":20.06,"temp_max":20.06,"pressure":1016,"sea_level":1016,"grnd_level":938,"humidity":69,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"céu
         limpo","icon":"01n"}],"clouds":{"all":0},"wind":{"speed":6.2,"deg":123},"visibility":10000,"pop":0,"sys":{"pod":"n"},"dt_txt":"2020-11-08
         00:00:00"}],"city":{"id":3467865,"name":"Campinas","coord":{"lat":-22.9056,"lon":-47.0608},"country":"BR","population":1031554,"timezone":-10800,"sunrise":1604305327,"sunset":1604352084}}'
-  recorded_at: Tue, 03 Nov 2020 01:40:15 GMT
+  recorded_at: Tue, 03 Nov 2020 01:40:10 GMT
 recorded_with: VCR 6.0.0
