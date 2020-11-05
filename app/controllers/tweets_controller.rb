@@ -21,10 +21,10 @@ class TweetsController < ApplicationController
   end
 
   def city_not_found
-    render json: { city: "Cidade Inválida ou não encontrada" }, status: 404
+    render json: { city: "City not found" }, status: 404
   end
 
   def unauthorized
-    render json: { api_key: "Chave de api inválida. Visite http://openweathermap.org/faq#error401 para mais informações." }, status: 401
+    render json: { api_key: "Invalid Api-key. Check http://openweathermap.org/faq#error401 for more info." }, status: 401
   end
 end

@@ -2,48 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/weather?appid=api-key&lang=pt_BR&q=S0m3-c1ty&units=metric
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      User-Agent:
-      - rest-client/2.1.0 (linux-gnu x86_64) ruby/2.7.1p83
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Host:
-      - api.openweathermap.org
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Server:
-      - openresty
-      Date:
-      - Tue, 03 Nov 2020 17:13:01 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '40'
-      Connection:
-      - keep-alive
-      X-Cache-Key:
-      - "/data/2.5/weather?lang=pt_BR&q=s0m3-c1ty&units=metric"
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Methods:
-      - GET, POST
-    body:
-      encoding: UTF-8
-      string: '{"cod":"404","message":"city not found"}'
-  recorded_at: Tue, 03 Nov 2020 17:13:01 GMT
-- request:
-    method: get
     uri: http://api.openweathermap.org/data/2.5/weather?appid=api-key&lang=pt_BR&q=S1nv4l1d1-c1tyy&units=metric
     body:
       encoding: US-ASCII
@@ -65,7 +23,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Tue, 03 Nov 2020 17:15:26 GMT
+      - Thu, 05 Nov 2020 00:08:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -83,5 +41,5 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"cod":"404","message":"city not found"}'
-  recorded_at: Tue, 03 Nov 2020 17:15:25 GMT
+  recorded_at: Thu, 05 Nov 2020 00:08:56 GMT
 recorded_with: VCR 6.0.0

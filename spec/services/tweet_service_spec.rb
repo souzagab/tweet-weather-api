@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe TweetService, :vcr do
-  subject { described_class.new({ api_key: ENV['OPEN_WEATHER_KEY'], city: 'Campinas'}) }
+  subject { described_class.new({ api_key: ENV['OPEN_WEATHER_KEY'], city: 'Campinas' }) }
 
   context '#initialize' do
     describe 'without arguments raise KeyError' do
@@ -10,7 +10,7 @@ RSpec.describe TweetService, :vcr do
         expect { described_class.new }.to raise_error KeyError
       end
       it 'city' do
-        expect { described_class.new({ api_key: 'h4sh-t3st'}) }.to raise_error KeyError
+        expect { described_class.new({ api_key: 'h4sh-t3st' }) }.to raise_error KeyError
       end
     end
   end
@@ -29,7 +29,7 @@ RSpec.describe TweetService, :vcr do
     end
 
     it 'forecast_week' do
-      forecast_week = [ Weather.new(temp: 23) ]
+      forecast_week = [Weather.new(temp: 23)]
       subject.forecast_week = forecast_week
       expect(subject.forecast_week).to eq(forecast_week)
     end
