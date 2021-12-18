@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'rspec/rails'
+require "rspec/rails"
 
 RSpec.configure do |config|
   config.use_active_record = false
@@ -22,7 +22,7 @@ end
 
 VCR.configure do |c|
   c.define_cassette_placeholder("<API_KEY>", ENV["OPEN_WEATHER_KEY"])
-  c.cassette_library_dir = 'spec/cassettes'
+  c.cassette_library_dir = "spec/cassettes"
   c.configure_rspec_metadata!
   c.hook_into :webmock
 
@@ -35,8 +35,14 @@ VCR.configure do |c|
   }
 
   c.before_record do |record|
-    record.request.uri.gsub!(ENV['OPEN_WEATHER_KEY'], 'api-key') if ENV.key?('OPEN_WEATHER_KEY')
-    record.response.body.force_encoding('UTF-8')
+    if ENV.key?("OPEN_WEATHER_KEY")
+      record.request.uri.gsub!(ENV["OPEN_WEATHER_KEY"],
+                               "api-key")
+    end
+    record.response.body.force_encoding("UTF-8")
   end
 end
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+
+Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each do |f|
+  require f
+end
