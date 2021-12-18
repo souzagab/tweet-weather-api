@@ -21,20 +21,20 @@ class TweetService
 
     forecast_week.each_with_index do |day, index|
       str << if index == (forecast_week.size - 1)
-        "e #{day.formatted_temp} em #{day.formatted_date}."
-      else
-        "#{day.formatted_temp} em #{day.formatted_date}, "
-      end
+               "e #{day.formatted_temp} em #{day.formatted_date}."
+             else
+               "#{day.formatted_temp} em #{day.formatted_date}, "
+             end
     end
     str
   end
 
   def client
     Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token = ENV['TWITTER_ACESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
+      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = ENV["TWITTER_ACESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_TOKEN_SECRET"]
     end
   end
 end
