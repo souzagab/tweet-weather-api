@@ -24,6 +24,7 @@ class WeatherService
     response = client.current_weather(city: city, action: "forecast")
 
     averages = []
+
     time_gap.each do |date|
       filtered_list = response[:list].select do |item|
         item[:dt_txt].to_date == date
@@ -32,6 +33,7 @@ class WeatherService
       averages << Weather.new(date: date,
                               temp: daily_average(filtered_list))
     end
+
     averages
   end
 

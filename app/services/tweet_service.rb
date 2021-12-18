@@ -17,6 +17,7 @@ class TweetService
 
   def message
     str = "#{forecast_today.formatted_temp} e #{forecast_today.description} em #{city} em #{forecast_today.formatted_date}. "
+    # TODO: Use i18n
     str << "Média para os próximos dias de: "
 
     forecast_week.each_with_index do |day, index|
@@ -31,10 +32,10 @@ class TweetService
 
   def client
     Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
-      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
-      config.access_token = ENV["TWITTER_ACESS_TOKEN"]
-      config.access_token_secret = ENV["TWITTER_TOKEN_SECRET"]
+      config.consumer_key = ENV.fetch("TWITTER_CONSUMER_KEY")
+      config.consumer_secret = ENV.fetch("TWITTER_CONSUMER_SECRET")
+      config.access_token = ENV.fetch("TWITTER_ACESS_TOKEN")
+      config.access_token_secret = ENV.fetch("TWITTER_TOKEN_SECRET")
     end
   end
 end
