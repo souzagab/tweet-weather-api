@@ -1,13 +1,18 @@
 # frozen_string_literal: true
-require 'rails_helper'
 
 RSpec.describe WeatherService do
   subject { described_class.new(api_key: ENV['OPEN_WEATHER_KEY']) }
+
+  before do
+    # Freezes time to match with current cassetes (2021-12-18)
+    travel_to Time.zone.local(2021, 12, 18)
+  end
 
   describe 'have acessors for' do
     it 'client' do
       client = Ropenweather::Client.new(api_key: 'api_key')
       subject.client = client
+
       expect(subject.client).to eq(client)
     end
 
@@ -46,6 +51,7 @@ RSpec.describe WeatherService do
       describe 'with valid city' do
         let(:response) { subject.get_weather(city: 'Campinas') }
         let(:response_keys) { %i(today week) }
+
         it 'response type Hash ' do
           expect(response).to be_a(Hash)
         end

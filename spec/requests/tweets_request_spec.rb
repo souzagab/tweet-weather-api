@@ -1,7 +1,11 @@
 # frozen_string_literal: true
-require 'rails_helper'
 
 RSpec.describe "Tweets", type: :request do
+  before do
+    # Freezes time to match with current cassetes (2021-12-18)
+    travel_to Time.zone.local(2021, 12, 18)
+  end
+
   context '#create', :vcr do
     let(:headers) { { "Content-Type": "application/json" } }
 

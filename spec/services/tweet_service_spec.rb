@@ -1,10 +1,13 @@
 # frozen_string_literal: true
-require 'rails_helper'
-
 RSpec.describe TweetService, :vcr do
   subject { described_class.new({ api_key: ENV['OPEN_WEATHER_KEY'], city: 'Campinas' }) }
 
-  context '#initialize' do
+  before do
+    # Freezes time to match with current cassetes (2021-12-18)
+    travel_to Time.zone.local(2021, 12, 18)
+  end
+
+  describe '#initialize' do
     describe 'without arguments raise KeyError' do
       it 'api_key' do
         expect { described_class.new }.to raise_error KeyError
@@ -15,13 +18,13 @@ RSpec.describe TweetService, :vcr do
     end
   end
 
-  context '#send' do
+  describe '#send' do
     it 'returns Tweet' do
       allow(subject).to receive(:send).and_return kind_of(Twitter::Tweet)
     end
   end
 
-  describe 'have acessors for' do
+  context 'have acessors for' do
     it 'forecast_today' do
       forecast_today = Weather.new(temp: 23)
       subject.forecast_today = forecast_today
@@ -40,13 +43,13 @@ RSpec.describe TweetService, :vcr do
     end
   end
 
-  context '#client' do
+  describe '#client' do
     it 'returns new Twitter client' do
       allow(subject).to receive(:client).and_return kind_of(Twitter::REST::Client)
     end
   end
 
-  context '#message' do
+  describe '#message' do
     it 'returns string' do
       allow(subject).to receive(:message).and_return kind_of(String)
     end
